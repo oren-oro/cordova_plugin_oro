@@ -17,7 +17,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="OroUtils">
-                <param name="android-package" value="com.orodragon.oroUtils.oroUtils"/>
+                <param name="android-package" value="com.orodragon.oroUtils.OroUtils"/>
             </feature>
         </config-file>
         <source-file src="src/android/com/orodragon/oroUtils/OroUtils.java"
