@@ -1,0 +1,31 @@
+{
+  "version": "8.5.2",
+  "name": "cordova-plugin-oro",
+  "cordova_name": "Oro Utils",
+  "description": "Various Utility Methods.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oren-oro/cordova_plugin_oro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oren-oro/cordova_plugin_oro/issues"
+  },
+  "homepage": "https://github.com/oren-oro/cordova_plugin_oro#readme",
+  "keywords": [
+    "OroUtils",
+    "Thread Name",
+  ],
+  "platforms": [
+    "android"
+  ],
+  "dependencies": {
+    "q": "*"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ]
+}
