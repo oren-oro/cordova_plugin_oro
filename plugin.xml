@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-oro" version="1.0.5">
-    <name>Google Play Services Checker</name>
+    <name>Various utility functions</name>
     <description>
         Cordova/Ionic/Phonegap plugin for various utility functions
     </description>
@@ -16,7 +16,7 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="GooglePlayServicesChecker">
+            <feature name="OroUtils">
                 <param name="android-package" value="com.orodragon.oroUtils.oroUtils"/>
             </feature>
         </config-file>
