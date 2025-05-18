@@ -11,21 +11,19 @@ public class OroUtils extends CordovaPlugin {
     private static final String APPTAG = "OroUtils";
 
     @Override
-    public boolean execute(String action, final JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("setThreadName")) {
             Log.i(APPTAG, "setThreadName");
-            cordova.getThreadPool().execute(() -> {
-                try {
-                    String threadName = args.getString(0);
-                    if (threadName == null || threadName.trim().length() == 0)
-                        throw new JSONException("Missing thread name!");
-                    Thread.currentThread().setName(threadName);
-                    callbackContext.success();
-                }
-                catch (JSONException exception) {
-                    callbackContext.error(exception.getMessage());
-                }
-            });
+            try {
+                String threadName = args.getString(0);
+                if (threadName == null || threadName.trim().length() == 0)
+                    throw new JSONException("Missing thread name!");
+                Thread.currentThread().setName(threadName);
+                callbackContext.success();
+            }
+            catch (JSONException exception) {
+                callbackContext.error(exception.getMessage());
+            }
             return true;
         } else {
             callbackContext.error("Method not allowed");
