@@ -20,7 +20,7 @@
                 <param name="android-package" value="com.orodragon.oroUtils.oroUtils"/>
             </feature>
         </config-file>
-        <source-file src="src/android/com/oroUtils/oroUtils/oroUtils.java"
-                     target-dir="src/com/oroUtils/oroUtils"/>
+        <source-file src="src/android/com/orodragon/oroUtils/OroUtils.java"
+                     target-dir="src/com/orodragon/oroUtils"/>
     </platform>
 </plugin>
