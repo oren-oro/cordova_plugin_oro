@@ -23,4 +23,9 @@
         <source-file src="src/android/com/orodragon/oroUtils/OroUtils.java"
                      target-dir="src/com/orodragon/oroUtils"/>
     </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <source-file src="src/ios/VpnDetector.swift" />
+    </platform>
 </plugin>
