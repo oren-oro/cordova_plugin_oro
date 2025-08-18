@@ -5,6 +5,6 @@ module.exports = {
         cordova.exec(successCallback || emptyFnc, errorCallback || emptyFnc, "OroUtils", "setThreadName", [threadName]);
     },
     isVpnActive: function(successCallback, errorCallback) {
-        cordova.exec(successCallback || emptyFnc, errorCallback || emptyFnc, 'VPNDetector', 'isVpnActive', []);
+        cordova.exec(successCallback || emptyFnc, errorCallback || emptyFnc, 'OroUtils', 'isVpnActive', []);
     }
 };
