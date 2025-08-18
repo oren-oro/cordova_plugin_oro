@@ -26,6 +26,7 @@
 
     <!-- iOS -->
     <platform name="ios">
-        <source-file src="src/ios/VpnDetector.swift" />
+        <source-file src="src/ios/VpnDetector.h" />
+        <source-file src="src/ios/VpnDetector.m" />
     </platform>
 </plugin>
