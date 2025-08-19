@@ -1,5 +1,5 @@
 {
-  "version": "8.5.2",
+  "version": "1.1.0",
   "name": "cordova-plugin-oro",
   "cordova_name": "Oro Utils",
   "description": "Various Utility Methods.",
@@ -15,7 +15,10 @@
   "keywords": [
     "OroUtils",
     "Thread Name",
-    "Check Vpn"
+    "cordova",
+    "vpn",
+    "network",
+    "vpn-detection"
   ],
   "platforms": [
     "android",
