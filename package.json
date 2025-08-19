@@ -14,10 +14,12 @@
   "homepage": "https://github.com/oren-oro/cordova_plugin_oro#readme",
   "keywords": [
     "OroUtils",
-    "Thread Name"
+    "Thread Name",
+    "Check Vpn"
   ],
   "platforms": [
-    "android"
+    "android",
+    "ios"
   ],
   "dependencies": {
     "q": "*"
@@ -25,7 +27,7 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=3.5.0"
+      "version": ">=10.0.0"
     }
   ]
 }
