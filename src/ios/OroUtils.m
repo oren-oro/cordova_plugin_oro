@@ -1,39 +1,29 @@
 #import "OroUtils.h"
-#import <ifaddrs.h>
-#import <net/if.h>
+#import <CFNetwork/CFNetwork.h>
 
 @implementation OroUtils
 
 - (void)isVpnActive:(CDVInvokedUrlCommand*)command {
     BOOL vpnActive = [self checkVPN];
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK 
-                                                   messageAsBool:vpnActive];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                                           messageAsBool:vpnActive];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    });
 }
 
+// VPN detection via system proxy settings
 - (BOOL)checkVPN {
-    struct ifaddrs *interfaces = NULL;
-    struct ifaddrs *temp_addr = NULL;
-    BOOL vpnActive = NO;
-
-    if (getifaddrs(&interfaces) == 0) {
-        temp_addr = interfaces;
-        while (temp_addr != NULL) {
-            NSString *name = [NSString stringWithUTF8String:temp_addr->ifa_name];
-            if ([name hasPrefix:@"utun"] || [name hasPrefix:@"ppp"]) {
-                vpnActive = YES;
-                break;
-            }
-            temp_addr = temp_addr->ifa_next;
-        }
+    NSDictionary *settings = (__bridge NSDictionary *)CFNetworkCopySystemProxySettings();
+    if (settings == nil) {
+        return NO;
     }
 
-    if (interfaces != NULL) {
-        freeifaddrs(interfaces);
-    }
+    // Check if any of the VPN-related keys are set
+    NSNumber *vpnEnabled = [settings objectForKey:@"__SCOPED__"] != nil ? @YES : @NO;
 
-    return vpnActive;
+    return [vpnEnabled boolValue];
 }
 
 @end
