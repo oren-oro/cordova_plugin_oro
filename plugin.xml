@@ -26,10 +26,13 @@
 
     <!-- iOS -->
     <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="OroUtils">
+                <param name="ios-package" value="OroUtils" />
+            </feature>
+        </config-file>
+        
         <source-file src="src/ios/OroUtils.h" />
         <source-file src="src/ios/OroUtils.m" />
-        <feature name="OroUtils">
-            <param name="ios-package" value="OroUtils" />
-        </feature>
     </platform>
 </plugin>
